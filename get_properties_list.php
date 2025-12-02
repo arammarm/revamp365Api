@@ -10,7 +10,7 @@ APIHelper::RemoveParamIfZero();
 APIHelper::setAccuracyParams();
 
 $test = APIHelper::GetParam('test');
-$distanceMax = APIHelper::GetParam('distance_max');
+$distanceMax = APIHelper::GetParam('distance_max'); 
 $userLat = APIHelper::GetParam('user_lat'); 
 $userLng = APIHelper::GetParam('user_lng');
 $allWholesale = APIHelper::GetParam('all_wholesale');
