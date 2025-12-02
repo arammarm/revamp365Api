@@ -22,7 +22,7 @@ $initialTime = microtime(true);
 $_limit = APIHelper::GetParam('_limit');
 if ($_limit != null && $_limit < 5000) {
     $maxResultLimit = $_limit;
-} 
+}
 
 file_put_contents("data_list.log", json_encode($_GET));
 
