@@ -17,7 +17,7 @@
 include_once "mysql_conn.php";
 include_once "../includes/APIHelper.php";
 include_once "../includes/DatatreeAPIHelper.php";
-include_once "../includes/DatatreeAPIHelperExtended.php";
+include_once "../includes/DatatreeAPIHelperExtended.php"; 
 APIHelper::Authentication();
 global $dsn, $username, $password;
 
