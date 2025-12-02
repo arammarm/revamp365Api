@@ -1,0 +1,33 @@
+# Sensitive configuration files
+buyers/mysql_conn.php
+buyers/investor-caching/config.inverstercache.php
+
+# Log files
+*.log
+logs/
+buyers/investor-caching/logs/
+
+# Temporary/backup files
+* copy.php
+* copy.*
+* backup*
+backups/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# CSV data files (if they contain sensitive data)
+*.csv
+
+# Test files (optional - remove if you want to track them)
+test.php
+*_test.php

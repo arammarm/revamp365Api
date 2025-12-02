@@ -1,0 +1,68 @@
+{
+            "investor_identifier": "INVESTORS CHOICE LLC",
+            "MailingFullStreetAddress": "8 THE GRN STE R",
+            "MailingCity": "DOVER",
+            "MailingState": "DE",
+            "MailingZIP5": "19901",
+            "properties_owned": "16",
+            "mrp_purchase": "2025-06-23",
+            "mrp_sales_price": "55000",
+            "mrp_fullstreet": "1018 W 8TH ST",
+            "mrp_city": "CHESTER",
+            "mrp_state": "PA",
+            "mrp_zip": "19013",
+            "mrp_beds": "3.0",
+            "mrp_bath": "1.0",
+            "mrp_sqft": "954",
+            "mrp_type_class": "0",
+            "mrp_lat": "39.846118000",
+            "mrp_lng": "-75.375496000",
+            "absentee_count": "16",
+            "is_llc": "1",
+            "folsom_properties": "0",
+            "cash_purchase_count": "7",
+            "likelihood_score": "72",
+            "FIPS": "42045",
+            "most_likely_buyer_tag": "Most Likely Buyer"
+}
+{
+            "investor_identifier": "INVESTORS CHOICE LLC",
+            "MailingFullStreetAddress": "2501 ANNWOOD DR",
+            "MailingCity": "DOVER",
+            "MailingState": "DE",
+            "MailingZIP5": "19810",
+            "properties_owned": "19",
+            "mrp_purchase": "2025-06-23",
+            "mrp_sales_price": "55000",
+            "mrp_fullstreet": "1018 W 8TH ST",
+            "mrp_city": "CHESTER",
+            "mrp_state": "PA",
+            "mrp_zip": "19013",
+            "mrp_beds": "3.0",
+            "mrp_bath": "1.0",
+            "mrp_sqft": "954",
+            "mrp_type_class": "0",
+            "mrp_lat": "39.846118000",
+            "mrp_lng": "-75.375496000",
+            "absentee_count": "19",
+            "is_llc": "1",
+            "folsom_properties": "0",
+            "cash_purchase_count": "8",
+            "likelihood_score": "67",
+            "FIPS": "42045",
+            "most_likely_buyer_tag": "Most Likely Buyer"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
