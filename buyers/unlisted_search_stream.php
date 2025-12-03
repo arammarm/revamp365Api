@@ -19,6 +19,9 @@ include_once "../includes/APIHelper.php";
 include_once "../includes/DatatreeAPIHelper.php";
 include_once "../includes/DatatreeAPIHelperExtended.php"; 
 APIHelper::Authentication(true); 
+print_r($_POST);
+die('deprecated');
+
 global $dsn, $username, $password;
 
 // Include the InvestorQueryBuilder class from the original file
