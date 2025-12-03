@@ -115,6 +115,75 @@ class InvestorQueryBuilder
         return $this->params;
     }
 
+    /**
+     * Build Tags array from row data (max 4 items, priority order)
+     * @param array $row
+     * @return array
+     */
+    public static function buildTagsFromRow($row): array
+    {
+        $tagMap = [
+            'tag_absentee_owner' => 'Absentee Owner',
+            'tag_high_equity' => 'High Equity',
+            'tag_fixer_upper' => 'Fixer Upper',
+            'tag_recent_sale' => 'Recent Sale',
+            'tag_corporate_owner' => 'Corporate Owner',
+            'tag_out_of_state_owner' => 'Out Of State Owner',
+            'tag_trust_owned' => 'Trust Owned',
+            'tag_elderly_owner' => 'Elderly Owner',
+            'tag_owner_occupied' => 'Owner Occupied',
+            'tag_no_mortgage' => 'No Mortgage',
+            'tag_negative_equity' => 'Negative Equity',
+            'tag_low_equity' => 'Low Equity',
+            'tag_high_ltv' => 'High LTV',
+            'tag_reverse_mortgage' => 'Reverse Mortgage',
+            'tag_arm' => 'ARM',
+            'tag_on_market' => 'On Market',
+            'tag_failed_listing' => 'Failed Listing',
+            'tag_below_market_sale' => 'Below Market Sale',
+            'tag_historical_sale' => 'Historical Sale',
+            'tag_legacy_sale' => 'Legacy Sale',
+            'tag_ancient_sale' => 'Ancient Sale',
+            'tag_flip_potential' => 'Flip Potential',
+            'tag_value_add' => 'Value Add',
+            'tag_aging_property' => 'Aging Property',
+            'tag_large_lot' => 'Large Lot',
+            'tag_multi_unit' => 'Multi Unit',
+            'tag_commercial_potential' => 'Commercial Potential',
+            'tag_pool_present' => 'Pool Present',
+            'tag_flood_zone' => 'Flood Zone',
+            'tag_hoa_property' => 'HOA Property',
+            'tag_historical_property' => 'Historical Property',
+            'tag_mobile_home' => 'Mobile Home',
+            'tag_basement_present' => 'Basement Present',
+            'tag_view_amenities_premium' => 'View Amenities Premium',
+            'tag_foreclosure' => 'Foreclosure',
+            'tag_pre_foreclosure' => 'Pre Foreclosure',
+            'tag_probate' => 'Probate',
+            'tag_pre_probate' => 'Pre Probate',
+            'tag_tax_delinquent' => 'Tax Delinquent',
+            'tag_vacant' => 'Vacant',
+            'tag_special_document' => 'Special Document',
+            'tag_low_confidence_value' => 'Low Confidence Value',
+            'tag_long_term_ownership' => 'Long Term Ownership',
+            'tag_exemptions_indigency' => 'Exemptions Indigency',
+            'tag_potential_tax_issues' => 'Potential Tax Issues',
+            'tag_low_market_value' => 'Low Market Value',
+            'tag_no_recent_activity' => 'No Recent Activity',
+        ];
+        
+        $tags = [];
+        foreach ($tagMap as $column => $label) {
+            // Check if the tag field exists and is truthy (1, true, '1', etc.)
+            // MySQL boolean expressions return 0 or 1 as integers
+            if (isset($row[$column]) && (bool)$row[$column] && count($tags) < 4) {
+                $tags[] = $label;
+            }
+        }
+        
+        return $tags;
+    }
+
     // ===================================================================
     // FILTER METHODS (same as original)
     // ===================================================================
@@ -1051,6 +1120,16 @@ try {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         // Transform the row
         $transformedRow = DatatreeAPIHelper::transformPropertyData($row);
+
+        // Build Tags array from tag_* fields
+        $transformedRow['Tags'] = InvestorQueryBuilder::buildTagsFromRow($row);
+
+        // Remove all tag_* fields from response (they're not needed, only Tags array is)
+        foreach ($transformedRow as $key => $value) {
+            if (strpos($key, 'tag_') === 0) {
+                unset($transformedRow[$key]);
+            }
+        }
 
         // Add to current chunk
         $chunk[] = $transformedRow;
