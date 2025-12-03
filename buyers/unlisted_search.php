@@ -3,7 +3,7 @@ include_once "mysql_conn.php";
 include_once "../includes/APIHelperV2.php";
 include_once "../includes/DatatreeAPIHelper.php";
 include_once "../includes/DatatreeAPIHelperExtended.php";
-APIHelper::Authentication();
+APIHelper::Authentication(true);
 global $dsn, $username, $password;
 class InvestorQueryBuilder
 {

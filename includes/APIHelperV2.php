@@ -196,6 +196,7 @@ class APIHelper
                         $_GET[$key] = $value;
                     }
                 }
+                
             } elseif (strpos($contentType, 'multipart/form-data') === false) {
                 header('Content-Type: application/json', true, 400);
                 echo self::SendResponse([], '0', 'Request must be multipart/form-data not ' . ($_SERVER['CONTENT_TYPE'] ?? 'custom type'));
