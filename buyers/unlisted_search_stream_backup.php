@@ -37,7 +37,7 @@ class InvestorQueryBuilder
     public function __construct()
     {
         // Load the base query
-        $this->baseQuery = file_get_contents(__DIR__ . '/unlisted-query/query-backup.sql');
+        $this->baseQuery = file_get_contents(__DIR__ . '/unlisted-query/query.sql');
     }
 
     /**
