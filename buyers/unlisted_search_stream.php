@@ -18,7 +18,7 @@ include_once "mysql_conn.php";
 include_once "../includes/APIHelper.php";
 include_once "../includes/DatatreeAPIHelper.php";
 include_once "../includes/DatatreeAPIHelperExtended.php"; 
-die('deprecated');
+
 APIHelper::Authentication(true); 
 print_r($_POST);
 die('deprecated');
