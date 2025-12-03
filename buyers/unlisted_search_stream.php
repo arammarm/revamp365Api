@@ -18,7 +18,7 @@ include_once "mysql_conn.php";
 include_once "../includes/APIHelper.php";
 include_once "../includes/DatatreeAPIHelper.php";
 include_once "../includes/DatatreeAPIHelperExtended.php"; 
-APIHelper::Authentication();
+APIHelper::Authentication(true);
 global $dsn, $username, $password;
 
 // Include the InvestorQueryBuilder class from the original file

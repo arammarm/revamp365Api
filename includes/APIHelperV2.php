@@ -170,12 +170,33 @@ class APIHelper
         }
     }
 
-    public static function Authentication()
+    public static function Authentication($allJsonPayload = false)
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $contentType = isset($_SERVER['CONTENT_TYPE']) ? strtolower($_SERVER['CONTENT_TYPE']) : '';
-            if (strpos($contentType, 'multipart/form-data') === false) {
+            // Handle JSON payload if $allJsonPayload is true
+            if ($allJsonPayload && strpos($contentType, 'application/json') !== false) {
+                // Read JSON from request body
+                $jsonInput = file_get_contents('php://input');
+                $jsonData = json_decode($jsonInput, true);
+                
+                if (json_last_error() !== JSON_ERROR_NONE) {
+                    header('Content-Type: application/json', true, 400);
+                    echo self::SendResponse([], '0', 'Invalid JSON payload: ' . json_last_error_msg());
+                    exit;
+                }
+                
+                // Populate superglobals with JSON data
+                if (is_array($jsonData)) {
+                    foreach ($jsonData as $key => $value) {
+                        $_REQUEST[$key] = $value;
+                        $_POST[$key] = $value;
+                        // Also add to $_GET for compatibility
+                        $_GET[$key] = $value;
+                    }
+                }
+            } elseif (strpos($contentType, 'multipart/form-data') === false) {
                 header('Content-Type: application/json', true, 400);
                 echo self::SendResponse([], '0', 'Request must be multipart/form-data not ' . ($_SERVER['CONTENT_TYPE'] ?? 'custom type'));
                 exit;
