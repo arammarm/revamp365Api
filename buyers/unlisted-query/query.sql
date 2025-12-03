@@ -94,8 +94,8 @@ WHERE p.PropertyClassID = 'R'
   AND p.OwnerNAME1FULL NOT LIKE '%HUD%'
 
 -- CRITICAL: Add filters dynamically in PHP
-AND p.FIPS = :county
-# Example: AND p.SitusZIP5 = :zip
+-- AND p.FIPS = :county
+-- Example: AND p.SitusZIP5 = :zip
 
 ORDER BY p.CurrentSaleRecordingDate DESC
 LIMIT 100;
