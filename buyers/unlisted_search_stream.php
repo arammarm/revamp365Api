@@ -1113,7 +1113,7 @@ try {
     $stmt->execute($params);
 
     $rowCount = 0;
-    $chunkSize = 3000; // Send every 100 rows as a complete JSON object
+    $chunkSize = 5000; // Send every 100 rows as a complete JSON object
     $chunk = []; // Accumulate rows for current chunk
 
     // Fetch and stream rows one at a time
