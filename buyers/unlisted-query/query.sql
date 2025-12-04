@@ -24,6 +24,8 @@ SELECT
     p.BathTotalCalc,
     p.StoriesNbrCode,
     p.StyleCode,
+    p.AssdTotalValue,
+    p.MarketTotalValue,
 
     CASE
         WHEN (p.Owner1CorpInd = 'T' OR p.Owner2CorpInd = 'T' OR p.OwnerNAME1FULL REGEXP '\\b(LLC|INC|CORP|LP|LTD)\\b')
