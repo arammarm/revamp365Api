@@ -6,6 +6,7 @@ buyers/investor-caching/config.inverstercache.php
 *.log
 logs/
 buyers/investor-caching/logs/
+buyers/investor-caching/etl/
 
 # Temporary/backup files
 * copy.php
