@@ -102,7 +102,7 @@ class IncrementalInvestorETL
             $state = $this->getLastRunState();
 
             // Only for initial run to process all data 
-           // $state['last_run_time'] = '2025-11-07';
+           $state['last_run_time'] = '2025-12-05'; 
 
             $this->log("Last run: {$state['last_run_time']}");
             // Track metrics
