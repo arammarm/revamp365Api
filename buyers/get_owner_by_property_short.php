@@ -11,7 +11,7 @@ try {
     $conn = new PDO($dsn, $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $reqStreet = APIHelper::GetParam('street', true);
+    $reqStreet = APIHelper::GetParam('full_street_address', true);
     $reqCity = APIHelper::GetParam('city', true);
     $reqState = APIHelper::GetParam('state', true);
     $reqZip = APIHelper::GetParam('zip', true);
