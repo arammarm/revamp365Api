@@ -35,6 +35,7 @@ try {
         YearBuilt as year_built,
         SumLivingAreaSqFt as sum_living_area_sqft,
         AssdTotalValue as assessed_value,
+        CONCAT(MailingFullStreetAddress, ' ', MailingCity, ' ', MailingState, ' ', MailingZIP5) as investor_identifier,
         (CASE 
             WHEN Mtg1LoanAmt IS NOT NULL THEN 1 ELSE 0 END +
          CASE 
